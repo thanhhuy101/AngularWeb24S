@@ -1,0 +1,44 @@
+<!-- <div class="item">
+    <div class="box">
+        <img class="img" src="../../../assets/g1.png" />
+        <h3>Tên sản phẩm: Hamberger</h3>
+        <h3>Mô tả: Ngon</h3>
+        <h4>Giá tiền: 1000 VNĐ</h4>
+        <h4>số lượng: 10</h4>
+        <button class="button">Thêm vào giỏ hàng</button>
+    </div>
+    
+</div> -->
+<!-- <div class="item">
+    @for (food of foods; track food.id) {
+    <div class="box">
+        <img class="img" [src]="food.image" />
+        <h3>Tên sản phẩm: {{food.name}}</h3>
+        <h3>Mô tả: {{food.des}}</h3>
+        <h4>Giá tiền: {{food.price}} VNĐ</h4>
+        <h4>số lượng: {{food.quantity}}</h4>
+        <div style="display: flex;    width: 100%;justify-content: space-around;">
+            <button class="button">Thêm</button>
+            <button class="button">Xóa</button>
+        </div>
+
+    </div>
+    }
+</div> -->
+
+<div class="item">
+    @for (food of this.foods; track food.id) {
+    <div class="box" [routerLink]="['/product', food.id]">
+        <img class="img" [src]="food.image" />
+        <h3>Tên sản phẩm: {{food.name}}</h3>
+        <h3>Mô tả: {{food.des}}</h3>
+        <!-- <h4>Giá tiền: {{food.price}} VNĐ</h4>
+        <h4>Số lượng: {{food.inStock}}</h4> -->
+        <div style="display: flex; width: 100%;justify-content: space-around;">
+            <button (click)="getProductById(food.id)" class="button">Xem chi tiết</button>
+            <!-- <button (click)="this.cartService.addToCart(food)" class="button">Xem chi tiết</button> -->
+        </div>
+
+    </div>
+    }
+</div>

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "shopweb24s": {
+      "hosting": {
+        "shop": [
+          "shopweb24s"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "shopweb24s"
+  }
+}

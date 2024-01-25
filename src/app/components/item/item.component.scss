@@ -1,0 +1,58 @@
+.img {
+    width: 250px;
+    height: 150px;
+    background-color: white;
+}
+
+h4 {
+    font-size: 20px;
+    color: rgb(225, 215, 221);
+    display: flex;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+h3 {
+    color: rgb(225, 220, 220);
+    text-align: center;
+}
+
+.box {
+    border: solid 3px violet;
+    width: fit-content;
+    box-shadow: 10px 10px 5px #aaaaaa;
+    margin-top: 20px;
+    background-color: #675757;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.item {
+    display: grid;
+    flex-wrap: wrap;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    padding-top: -5px;
+    margin-left: 2rem;
+  }
+
+.button {
+   
+    margin-top: 10px;
+    padding: 10px 20px;
+    border-radius: 12px;
+    background-color: green;
+    color: white;
+}
+
+h2 {
+    display: flex;
+    justify-content: center;
+    color: rgb(230, 208, 212);
+}
+
+p {
+    color: white;
+    margin-left: 87px;
+    margin-top: 4px;
+}

@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="item">
+        <img class="img" [src]="product.image" />
+        <div class="info">
+            <h2>Tên sản phẩm: {{product.name}}</h2>
+            <p>Mô tả: {{product.des}}</p>
+            <p>Giá: {{product.price}} VNĐ</p>
+            <p>Giá tiền: {{product.price}} VNĐ</p>
+            <p>Số lượng: {{product.inStock}}</p>
+        </div>
+
+    </div>
+    <div class="right">
+        <button (click)="this.cartService.addToCart(product)"
+            style="width: 300px; padding: 20px 20px; border-radius: 12px; background-color: green; color: wheat; font-size: 14px;">Thêm
+            vào giỏ hàng</button>
+    </div>
+
+
+</div>

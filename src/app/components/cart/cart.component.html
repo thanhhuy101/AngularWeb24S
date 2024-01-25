@@ -1,0 +1,58 @@
+<!-- <div class="big">
+    <div class="'left">
+        <h2 style="margin-top: 20px;">Danh sách sản phẩm trong giỏ hàng: </h2>
+        <div class="cart">
+            <img class="img" src="../../../assets/g1.png" />
+            <div style="line-height: 2rem;">
+                <h3>Tên sản phẩm: Hamburger</h3>
+                <h4>Giá: 1000 VNĐ</h4>
+                <h2>Số lượng: 1</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="right">
+        <p>Tổng số tiền phải thanh toán là: 1000 VNĐ</p>
+        <button style="width: 300px; padding: 20px 20px; border-radius: 12px; background-color: green; color: wheat; font-size: 14px;">Thanh toán</button>
+    </div>
+</div> -->
+<div class="container">
+    @if (this.cartService.cart.length == 0) {
+    <h2 style="margin-top: 20px; text-align: center;">Không có sản phẩm trong giỏ hàng</h2>
+    }@else {
+    <h2 style="margin-top: 20px; text-align: center;">Danh sách sản phẩm trong giỏ hàng: </h2>
+    @for (item of this.cartService.cart; track item.id) {
+    <div class="item">
+        <img class="img" [src]="item.image" />
+        <div class="info">
+            <h2>Tên sản phẩm: {{item.name}}</h2>
+            <p>Mô tả: {{item.des}}</p>
+            <p>Giá: {{item.price}} VNĐ</p>
+            <div class="quantity">
+                <button (click)="this.cartService.decrease(item)"
+                    style="padding: 4px 20px; border-radius: 12px; border: none;background-color: rgb(235, 224, 113);">Giảm</button>
+                <p>Số lượng: {{item.quantity}}</p>
+                @if (item.inStock <=0) { <button disabled="true" (click)="this.cartService.increase(item)"
+                    style="padding: 4px 20px; border-radius: 12px; border: none;background-color: rgb(235, 224, 113);">
+                    Tăng</button>
+                    }@else {
+                    <button (click)="this.cartService.increase(item)"
+                        style="padding: 4px 20px; border-radius: 12px; border: none;background-color: rgb(235, 224, 113);">Tăng</button>
+                    }
+                    <p>Thành tiền: {{item.price*item.quantity}} VNĐ</p>
+            </div>
+        </div>
+        <div class="remove">
+            <button (click)="this.cartService.deleteItemInCart(item.id)">X</button>
+        </div>
+    </div>
+    }
+    <div class="right">
+        <p>Tổng số tiền phải thanh toán là: {{this.cartService.payment()}} VNĐ</p>
+        <button (click)="handleClick()"
+            style="width: 300px; padding: 20px 20px; border-radius: 12px; background-color: green; color: wheat; font-size: 14px;">Thanh
+            toán</button>
+    </div>
+    }
+
+</div>

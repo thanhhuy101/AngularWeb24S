@@ -1,0 +1,26 @@
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.navigate {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 450px;
+
+  a{
+    text-decoration: none;
+  }
+}
+
+.logo {
+  width: 50px;
+}
+
+.setting a {
+  text-decoration: none;
+}

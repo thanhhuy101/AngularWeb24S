@@ -1,0 +1,125 @@
+<div class="add">
+    <button (click)="openDialog()">Add</button>
+</div>
+<div class="item">
+    @for (food of this.cartService.foods; track food.id) {
+    <div class="box">
+        <img class="img" [src]="food.image" />
+        <h3>Tên sản phẩm: {{food.name}}</h3>
+        <h3>Mô tả: {{food.des}}</h3>
+        <h4>Giá tiền: {{food.price}} VNĐ</h4>
+        <h4>Số lượng: {{food.inStock}}</h4>
+        <div style="display: flex; width: 100%;justify-content: space-around;">
+            <button (click)="openEditDialog(food)" class="button">Sửa</button>
+            <button (click)="this.cartService.delete(food.id)" class="button">Xóa</button>
+        </div>
+
+    </div>
+    }
+</div>
+
+<dialog #appDialog>
+    <!-- custom-dialog.component.html -->
+    <div class="container">
+        <div class="title">
+            <h3>Form</h3>
+        </div>
+        <form [formGroup]="form">
+            <div style="display: flex; justify-content: space-between; width: 600px;">
+                <div>
+                    <div class="username">
+                        <h4>Name</h4>
+                        <input type="text" placeholder="Name" formControlName="name">
+                    </div>
+                    <tui-input
+                    formControlName="testValue"
+                    tuiTextfieldSize="m"
+                   
+                >
+                    Description
+                    <input
+                        autocomplete="email"
+                        tuiTextfield
+                        type="email"
+                    />
+                </tui-input>
+                    <div class="username">
+                        <h4>Description</h4>
+                        <input type="text" placeholder="Description" formControlName="des">
+                    </div>
+                    <div class="username">
+                        <h4>Price</h4>
+                        <input type="text" placeholder="Price" formControlName="price">
+                    </div>
+                </div>
+                <div>
+                    <div class="username">
+                        <h4>Quantity</h4>
+                        <input type="text" placeholder="Quantity" formControlName="quantity">
+                    </div>
+                    <div class="fisrtname">
+                        <h4>Quantity in stock</h4>
+                        <input type="text" placeholder="Stock" formControlName="inStock">
+                    </div>
+                    <div class="lastname">
+                        <h4>Image</h4>
+                        <input type="text" placeholder="Image" formControlName="image">
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn">
+                <button type="submit" (click)="submit()">Create</button>
+                <button (click)="closeDialog()">Cancel</button>
+            </div>
+        </form>
+
+    </div>
+</dialog>
+
+<dialog #formup>
+    <!-- custom-dialog.component.html -->
+    <div class="container">
+        <div class="title">
+            <h3>Form</h3>
+        </div>
+        <form [formGroup]="formupdate">
+            <div style="display: flex; justify-content: space-between; width: 600px;">
+                <div>
+                    <div class="username">
+                        <h4>Name</h4>
+                        <input type="text" placeholder="Name" formControlName="name">
+                    </div>
+                    <div class="username">
+                        <h4>Description</h4>
+                        <input type="text" placeholder="Description" formControlName="des">
+                    </div>
+                    <div class="username">
+                        <h4>Price</h4>
+                        <input type="text" placeholder="Price" formControlName="price">
+                    </div>
+                </div>
+                <div>
+                    <div class="username">
+                        <h4>Quantity</h4>
+                        <input type="text" placeholder="Quantity" formControlName="quantity">
+                    </div>
+                    <div class="fisrtname">
+                        <h4>Quantity in stock</h4>
+                        <input type="text" placeholder="Stock" formControlName="inStock">
+                    </div>
+                    <div class="lastname">
+                        <h4>Image</h4>
+                        <input type="text" placeholder="Image">
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn">
+                <button type="submit" (click)="updateItem()">Update</button>
+                <button (click)="closeDialog()">Cancel</button>
+            </div>
+        </form>
+
+    </div>
+</dialog>
