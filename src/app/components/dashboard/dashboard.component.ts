@@ -34,10 +34,10 @@ export class DashboardComponent {
     this.dialog.nativeElement.close();
     this.cdr.detectChanges();
   }
-  nextId: number = 6;
+
   form = new FormGroup({
     inStock: new FormControl(0),
-    id: new FormControl(0),
+    id: new FormControl(),
     name: new FormControl(''),
     des: new FormControl(''),
     price: new FormControl(0),
@@ -47,7 +47,7 @@ export class DashboardComponent {
 
   submit() {
     let newForm: Food = {
-      id: this.nextId++,
+      id: Math.floor(Math.random() * 1000),
       inStock: this.form.value.inStock || 0,
       name: this.form.value.name || '',
       des: this.form.value.des || '',
@@ -55,9 +55,13 @@ export class DashboardComponent {
       image: this.form.value.image || '',
       quantity: this.form.value.quantity || 0,
     };
-    this.cartService.addItem(newForm);
+    this.addProduct(newForm);
     this.closeDialog();
   }
+  addProduct(item: Food) {
+    this.cartService.addItem(item);
+  }
+
   /*---------Form Edit--------*/
   @ViewChild('formup', { static: true })
   editdialog!: ElementRef<HTMLDialogElement>;
@@ -101,6 +105,16 @@ export class DashboardComponent {
     if (index != -1) {
       this.cartService.foods[index] = newForm;
     }
+    this.updateProduct(newForm);
     this.closeEditDialog();
+  }
+
+  updateProduct(item: Food) {
+    this.cartService.update(item);
+  }
+
+  deleteProduct(item: Food) {
+    this.cartService.delete(item);
+    console.log(item);
   }
 }

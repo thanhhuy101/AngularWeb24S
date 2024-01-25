@@ -14,7 +14,7 @@ export class ItemComponent implements OnInit {
 
   foods: any = [];
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.foods = this.cartService.getProducts();
   }
 
